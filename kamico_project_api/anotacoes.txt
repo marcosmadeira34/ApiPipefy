@@ -1,0 +1,13 @@
+Estrutura para criar uma query de consulta no graphQL
+
+
+
+criar um arquivo schema.py na raiz do projetos;
+definir uma classe QueryType herdando de graphene.ObjectType;
+definir um nome para a query e demais dados que precisar;
+
+definir uma variavel to tipo desejado (hello = graphene.String());
+
+criar uma método(função) iniciando com resolve para ligar o schema com o QueryType;
+    def resolve_hello(root, args, info):
+        return "World"

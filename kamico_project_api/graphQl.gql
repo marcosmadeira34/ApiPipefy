@@ -1,0 +1,72 @@
+CREATE CARD
+
+# buscar info dos pipes
+type Query{
+    pipe(id:301327849){
+        start_form_fields{
+            id
+            label
+            requerid
+            type
+        }
+    }
+
+# parâmetros para criar cards nos pipes 
+type Mutation{
+        createCard(pipe_id:301327849, card_name:"teste", card_fields:{
+        "start_form_fields": [
+            {
+                "id": "1",
+                "label": "teste",
+                "requerid": "true",
+                "type": "text"
+            }
+        ]
+    })
+}
+    {
+        id
+        name
+        start_form_fields{
+            id
+            label
+            requerid
+            type
+            options
+        }
+    }
+
+type Mutation{
+        createCard(input:{
+            pipe_id:301327849
+            fields_attributes:[
+                {field_id:"what_s_your_name", field_value:"marcos"}
+                {field_id:"what_s_your_email", field_value:"email@email.com"}
+                {field_id:"whats_needs_to_be_purchased_hired", field_value:"computer"}]
+            
+        })
+    }
+    
+
+UPDATE CARD
+
+type Mutation{
+    uptdateCard(input:{
+        card_id:301327849
+        field_id:"whats_needs_to_be_purchased_hired"
+        new_value:'Mouse'
+        )
+    }
+}
+
+DELETE CARD
+
+type Mutation{
+    deleteCard(input:{
+        card_id:301327849
+         }
+    )
+}
+
+CREATE PHASE FIELD
+
